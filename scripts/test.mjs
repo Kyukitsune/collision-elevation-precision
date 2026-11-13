@@ -1,0 +1,1 @@
+import {spawnSync} from 'node:child_process';import {fileURLToPath} from 'node:url';const files=['stabilize.test.mjs','runtime.test.mjs'].map(name=>fileURLToPath(new URL('../tests/'+name,import.meta.url)));const result=spawnSync(process.execPath,['--test','--test-reporter=tap',...files],{stdio:'inherit'});process.exitCode=result.status??1;
